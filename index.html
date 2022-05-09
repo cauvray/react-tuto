@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>My React Template</title>
+        <meta
+            name="description"
+            content="React template using vite created by hvalette"
+        />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link
+            rel="alternate icon"
+            href="/favicon.ico"
+            type="image/png"
+            sizes="16x16"
+        />
+        <link
+            rel="apple-touch-icon"
+            href="/apple-touch-icon.png"
+            sizes="180x180"
+        />
+        <link rel="mask-icon" href="/favicon.svg" color="#FFFFFF" />
+        <script>
+            const prefersDark =
+                window.matchMedia &&
+                window.matchMedia('(prefers-color-scheme: dark)').matches
+            const setting = localStorage.getItem('theme') || 'auto'
+            if (setting === 'dark' || (prefersDark && setting !== 'light'))
+                document.documentElement.classList.toggle('dark', true)
+        </script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="module" src="/src/main.tsx"></script>
+    </body>
+</html>
