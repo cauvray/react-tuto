@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Table from '../components/Table'
-import { deleteUser, getAll } from '../utils/users'
+import { getAll } from '../utils/users'
 import { useNavigate } from 'react-router-dom'
 
 function App() {
