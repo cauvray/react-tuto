@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Table from '../components/Table'
-import { getAll } from '../utils/users'
+import { deleteUser, getAll } from '../utils/users'
 import { useNavigate } from 'react-router-dom'
 
 function App() {
@@ -23,6 +23,11 @@ function App() {
             return { ...user, age: user.age * 12 }
         })
         setUsers(mappedUsers)
+    }
+
+    const deleteItem = (id: string) => {
+        const res = users.filter((user: any) => user._id !== id)
+        setUsers(res)
     }
 
     return (
@@ -57,7 +62,7 @@ function App() {
                 </button>
             </div>
 
-            <Table users={users}></Table>
+            <Table users={users} deleteUser={deleteItem}></Table>
         </div>
     )
 }

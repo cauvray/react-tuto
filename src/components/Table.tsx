@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 
-const Table = ({ users }: any) => {
+const Table = ({ users, deleteUser }: any) => {
     const navigate = useNavigate()
 
     return (
@@ -53,7 +53,12 @@ const Table = ({ users }: any) => {
                                 Edit
                             </td>
                             {user.isActive && (
-                                <td className="cursor-pointer p-4 text-blue-500">
+                                <td
+                                    className="cursor-pointer p-4 text-blue-500"
+                                    onClick={() => {
+                                        deleteUser(user._id)
+                                    }}
+                                >
                                     Delete
                                 </td>
                             )}
