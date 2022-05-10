@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { users } from '../utils/users'
+import { addUser, updateUser } from '../utils/users'
 
 import { useNavigate } from 'react-router-dom'
 
@@ -20,11 +20,12 @@ const AddUser = ({ userToEdit }: any) => {
     )
 
     const onSubmit = () => {
+        // On laisse ici ou on fait passer dans les parents ?
         if (userToEdit) {
-            // todo
+            updateUser(userToEdit._id, user)
         } else {
             const res = { ...user, _id: Math.random().toString(16).slice(2) }
-            users.push(res)
+            addUser(res)
         }
 
         navigate('/')

@@ -1,4 +1,4 @@
-export const users = [
+export let users = [
     {
         _id: '6279047a3a19d3b45ac7546c',
         isActive: false,
@@ -52,4 +52,17 @@ export const getAll = () => {
 
 export const getById = (id: string) => {
     return users.find((user: any) => user._id === id)
+}
+
+export const addUser = (user: any) => {
+    return users.push(user)
+}
+export const updateUser = (userId: string, userToUpdate: any) => {
+    users = users.map((user) => {
+        if (user._id === userId) {
+            return userToUpdate
+        } else {
+            return user
+        }
+    })
 }
