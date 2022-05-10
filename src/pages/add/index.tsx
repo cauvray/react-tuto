@@ -1,4 +1,10 @@
+import AddEditUser from '../../components/AddEditUser'
+
 const Add = () => {
-    return <div>TODO ADD</div>
+    return (
+        <div className="p-6">
+            <AddEditUser></AddEditUser>
+        </div>
+    )
 }
 export default Add

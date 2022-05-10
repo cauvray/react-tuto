@@ -1,4 +1,8 @@
-const Table = () => {
+import { useNavigate } from 'react-router-dom'
+
+const Table = ({ users }: any) => {
+    const navigate = useNavigate()
+
     return (
         <div className="shadow-md">
             <table className="w-full text-left text-sm text-gray-500">
@@ -23,6 +27,38 @@ const Table = () => {
                     {/* 2) Ajouter sur chaque ligne un boutton Edit */}
                     {/* 3) Ajouter sur chaque ligne un boutton Delete SI l'attribut de l'utilisateur isActive est ) true */}
                     {/* 4) Style : Si l'utilsateur est une femme, afficher le genre en violet, si c'est un homme, afficher le genre en vert */}
+
+                    {users.map((user: any) => (
+                        <tr key={user._id}>
+                            <td className="p-4">{user.firstName}</td>
+                            <td className="p-4">{user.lastName}</td>
+                            <td className="p-4">{user.age}</td>
+                            <td className="p-4">{user.email}</td>
+                            <td
+                                className={`p-4 ${
+                                    user.gender === 'male'
+                                        ? 'text-green-500'
+                                        : 'text-purple-500'
+                                }`}
+                            >
+                                {user.gender}
+                            </td>
+                            <td className="p-4">{user.isActive.toString()}</td>
+                            <td
+                                className="cursor-pointer p-4 text-blue-500"
+                                onClick={() => {
+                                    navigate(`/edit/${user._id}`)
+                                }}
+                            >
+                                Edit
+                            </td>
+                            {user.isActive && (
+                                <td className="cursor-pointer p-4 text-blue-500">
+                                    Delete
+                                </td>
+                            )}
+                        </tr>
+                    ))}
                 </tbody>
             </table>
         </div>
