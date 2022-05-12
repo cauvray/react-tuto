@@ -1,4 +1,4 @@
 const Add = () => {
-    return <div>TODO ADD</div>
+    return <div className="p-6">TODO ADD </div>
 }
 export default Add
